@@ -17,7 +17,7 @@ The files will be padded with (0.0, 0.0) samples for all times when the app is n
 ### Recommended workflow:
 * Use SPLnFFT and/or SPLnWatch to record sound pressure levels
 * Use the required in-app purchase to save a binary file(s) to Dropbox
-* Use [Dropbox_file_picker.py] to download the binary file(s) into Pythonista
+* Use [Dropbox_file_picker.py](https://gist.github.com/omz/fb180c58c94526e2c40b) to download the binary file(s) into Pythonista
 * Run __SPLnFFT_split.py__ to create a smaller file with leading and/or trailing hours of silence removed
 * Run __SPLnFFT_Reader_numpy.py__ to graph the results
 
