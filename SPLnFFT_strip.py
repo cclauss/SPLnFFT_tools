@@ -13,7 +13,7 @@ will be 8/24ths (i.e. 1/3rd) of the size of SPLnFFT_2015_08_13.bin
 
 import numpy, os
 
-filename = 'SPLnFFT_2015_07_21.bin'
+filename = 'SPLnFFT_2015_08_17.bin'
 root, ext = os.path.splitext(filename)
 
 data = numpy.fromfile(filename, dtype=numpy.float32).reshape(-1, 2)
