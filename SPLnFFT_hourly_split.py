@@ -13,9 +13,10 @@
 
 import datetime, numpy, os
 
-filename = 'SPLnFFT_2015_07_21.bin'
+#filename = 'SPLnFFT_2015_07_21.bin'
+filename = 'SPLnFFT_2015_08_17.bin'
 root, ext = os.path.splitext(filename)
-fmt = root + '_{:02}' + ext
+fmt = root + '_{:02}h_to_{:02}h' + ext
 
 def elapsed_time(msg='total'):
     return 'Elapsed time ({}): {}'.format(msg, datetime.datetime.now() - start)
@@ -23,8 +24,8 @@ def elapsed_time(msg='total'):
 start = datetime.datetime.now()
 data = numpy.fromfile(filename, dtype=numpy.float32)
 print(elapsed_time('Read'))
-floats_per_file = len(data) / 24
-print('{} floats per file'.format(floats_per_file))
+pairs_per_hour = len(data) / 24
+print('{} floats per file'.format(pairs_per_hour))
 for i in xrange(24):
-    data[i*floats_per_file:(i+1)*floats_per_file - 1].tofile(fmt.format(i))
-print(elapsed_time('{} files written.  Done.'.format(i+1)))  # approx. 0.333 seconds
+    data[i*pairs_per_hour:(i+1)*pairs_per_hour].tofile(fmt.format(i, i+1))
+print(elapsed_time('{} files written.  Done.'.format(i+1)))  # approx. 0.35 seconds
